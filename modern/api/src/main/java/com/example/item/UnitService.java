@@ -26,4 +26,9 @@ public class UnitService {
         log.debug("listed {} units", units.size());
         return units;
     }
+
+    /** 단원별 공개({@code status='A'}) 문항 수 — 학년, 코드 순. */
+    public List<UnitItemCountResponse> countActiveItemsByUnit() {
+        return unitRepository.countItemsByUnit(ItemStatus.ACTIVE);
+    }
 }
